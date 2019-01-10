@@ -16,7 +16,6 @@ import org.osgi.service.component.annotations.Reference;
  * @author Andrew Betts
  */
 @Component
-@SuppressWarnings("Duplicates")
 public class AssignPermissionsImpl implements AssignPermissions {
 
 	public <M extends AuditedModel> void addAuditedModelPermissions(

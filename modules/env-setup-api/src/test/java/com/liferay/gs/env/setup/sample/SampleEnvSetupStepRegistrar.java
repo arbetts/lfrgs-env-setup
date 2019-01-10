@@ -18,11 +18,6 @@ import org.osgi.service.component.annotations.Reference;
 @Component(immediate = true, service = UpgradeStepRegistrator.class)
 public class SampleEnvSetupStepRegistrar implements UpgradeStepRegistrator {
 
-	@Activate
-	protected void activate(BundleContext bundleContext) {
-		_bundleSymbolicName = bundleContext.getBundle().getSymbolicName();
-	}
-
 	@Override
 	public void register(Registry registry) {
 		registry.register(
@@ -45,7 +40,12 @@ public class SampleEnvSetupStepRegistrar implements UpgradeStepRegistrator {
 			_bundleSymbolicName, "5", "6",
 			new CompanyAwareUpgradeProcess(_addSampleLayouts, _portal));
 	}
-	
+
+	@Activate
+	protected void activate(BundleContext bundleContext) {
+		_bundleSymbolicName = bundleContext.getBundle().getSymbolicName();
+	}
+
 	private String _bundleSymbolicName;
 
 	@Reference(target = ModuleServiceLifecycle.PORTAL_INITIALIZED)

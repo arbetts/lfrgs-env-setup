@@ -27,7 +27,7 @@ public class ConfigureSampleUserGroups implements EnvSetupStep {
 				SampleData.SAMPLE_ROLE_CONFIGURATION[i].getRoleName();
 		}
 
-		assignUserGroupGroupRoles.addUserGroupGroupRoles(
+		assignUserGroupGroupRoles.assignUserGroupGroupRoles(
 			companyId, group, SampleData.SAMPLE_USER_GROUP, roleNames);
 	}
 

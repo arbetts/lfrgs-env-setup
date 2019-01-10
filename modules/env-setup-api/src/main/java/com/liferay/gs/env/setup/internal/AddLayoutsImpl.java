@@ -36,8 +36,6 @@ public class AddLayoutsImpl implements AddLayouts {
 		for (LayoutConfig layoutConfig : layoutConfigs) {
 			String friendlyURL = layoutConfig.getFriendlyURL();
 
-			LayoutConfig [] childConfigs = layoutConfig.getChildren();
-
 			Layout layout = _layoutLocalService.fetchLayoutByFriendlyURL(
 				group.getGroupId(), layoutConfig.getPrivateLayout(),
 				friendlyURL);
@@ -66,9 +64,9 @@ public class AddLayoutsImpl implements AddLayouts {
 				_log.debug("added page " + friendlyURL);
 			}
 
-			if (childConfigs != null) {
+			if (layoutConfig.getChildren() != null) {
 				addLayouts(
-					layout, group, childConfigs, addPermissions,
+					layout, group, layoutConfig.getChildren(), addPermissions,
 					removePermissions);
 			}
 		}

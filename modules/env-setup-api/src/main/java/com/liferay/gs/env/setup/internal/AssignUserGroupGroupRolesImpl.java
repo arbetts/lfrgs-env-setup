@@ -2,13 +2,14 @@ package com.liferay.gs.env.setup.internal;
 
 import com.liferay.gs.env.setup.AssignUserGroupGroupRoles;
 
+import com.liferay.gs.env.setup.config.RoleConfig;
+import com.liferay.gs.env.setup.config.UserGroupConfig;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.UserGroup;
-import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.kernel.service.UserGroupGroupRoleLocalService;
 import com.liferay.portal.kernel.service.UserGroupLocalService;
@@ -26,17 +27,19 @@ public class AssignUserGroupGroupRolesImpl
 	implements AssignUserGroupGroupRoles {
 
 	@Override
-	public void addUserGroupGroupRoles(
-		long companyId, Group group, String[] userGroupNames, String roleName)
+	public void assignUserGroupGroupRoles(
+			long companyId, Group group, UserGroupConfig[] userGroupConfigs,
+			RoleConfig roleConfig)
 		throws PortalException {
 
-		Role role = _roleLocalService.getRole(companyId, roleName);
+		Role role = _roleLocalService.getRole(
+			companyId, roleConfig.getRoleName());
 
-		for (String userGroupName : userGroupNames) {
+		for (UserGroupConfig userGroupConfig : userGroupConfigs) {
 			UserGroup userGroup = _userGroupLocalService.getUserGroup(
-				companyId, userGroupName);
+				companyId, userGroupConfig.getUserGroupName());
 
-			addUserGroupGroupRole(companyId, group, userGroup, role);
+			assignUserGroupGroupRole(companyId, group, userGroup, role);
 		}
 
 		if (_log.isInfoEnabled()) {
@@ -45,17 +48,19 @@ public class AssignUserGroupGroupRolesImpl
 	}
 
 	@Override
-	public void addUserGroupGroupRoles(
-		long companyId, Group group, String userGroupName, String[] roleNames)
+	public void assignUserGroupGroupRoles(
+			long companyId, Group group, UserGroupConfig userGroupConfig,
+			RoleConfig[] roleConfigs)
 		throws PortalException {
 
 		UserGroup userGroup = _userGroupLocalService.getUserGroup(
-			companyId, userGroupName);
+			companyId, userGroupConfig.getUserGroupName());
 
-		for (String roleName : roleNames) {
-			Role role = _roleLocalService.getRole(companyId, roleName);
+		for (RoleConfig roleConfig: roleConfigs) {
+			Role role = _roleLocalService.getRole(
+				companyId, roleConfig.getRoleName());
 
-			addUserGroupGroupRole(companyId, group, userGroup, role);
+			assignUserGroupGroupRole(companyId, group, userGroup, role);
 		}
 
 		if (_log.isInfoEnabled()) {
@@ -64,7 +69,7 @@ public class AssignUserGroupGroupRolesImpl
 	}
 
 	@Override
-	public void addUserGroupGroupRole(
+	public void assignUserGroupGroupRole(
 		long companyId, Group group, UserGroup userGroup, Role role) {
 
 		_userGroupGroupRoleLocalService.addUserGroupGroupRoles(

@@ -22,14 +22,14 @@ import org.osgi.service.component.annotations.Reference;
 public class AddUsersImpl implements AddUsers {
 
 	@Override
-	public void addUsers(
-		long companyId, UserConfig[] userConfigs)
+	public void addUsers(long companyId, UserConfig[] userConfigs)
 		throws PortalException {
 
 		Group companyGroup = _groupLocalService.getCompanyGroup(companyId);
 
 		for (UserConfig userConfig : userConfigs) {
-			User user = fetchUser(companyId, userConfig);
+			User user = AddUsers.fetchUser(
+				companyId, userConfig, _userLocalService);
 
 			if (user == null) {
 				user = _userLocalService.addUser(
@@ -53,53 +53,6 @@ public class AddUsersImpl implements AddUsers {
 		if (_log.isInfoEnabled()) {
 			_log.info("users loaded");
 		}
-	}
-
-	private User fetchUser(long companyId, UserConfig userConfig) {
-		User user = null;
-
-		switch (userConfig.getFindBy()) {
-			case BY_CONTACT_ID:
-				user = _userLocalService.fetchUserByContactId(
-					userConfig.getContactId());
-
-				break;
-
-			case BY_EMAIL_ADDRESS:
-				user = _userLocalService.fetchUserByEmailAddress(
-					companyId, userConfig.getEmailAddress());
-
-				break;
-
-			case BY_FACEBOOK_ID:
-				user = _userLocalService.fetchUserByFacebookId(
-					companyId, userConfig.getFacebookId());
-
-				break;
-
-			case BY_GOOGLE_USER_ID:
-				user = _userLocalService.fetchUserByGoogleUserId(
-					companyId, userConfig.getGoogleUserId());
-
-				break;
-
-			case BY_OPEN_ID:
-				user = _userLocalService.fetchUserByOpenId(
-					companyId, userConfig.getOpenId());
-
-				break;
-
-			case BY_SCREEN_NAME:
-				user = _userLocalService.fetchUserByScreenName(
-					companyId, userConfig.getScreenName());
-
-				break;
-
-			case BY_USER_ID:
-				user = _userLocalService.fetchUserById(userConfig.getId());
-		}
-
-		return user;
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(AddUsersImpl.class);

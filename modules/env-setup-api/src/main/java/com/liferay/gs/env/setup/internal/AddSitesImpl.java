@@ -20,17 +20,17 @@ public class AddSitesImpl implements AddSites {
 
 	@Override
 	public Group[] addSites(
-			long companyId, SiteConfig[] siteContexts)
+			long companyId, SiteConfig[] siteConfigs)
 		throws PortalException {
 
 		Group companyGroup = _groupLocalService.getCompanyGroup(companyId);
 
-		Group[] groups = new Group[siteContexts.length];
+		Group[] groups = new Group[siteConfigs.length];
 
-		for (int i = 0; i < siteContexts.length; i++) {
-			SiteConfig siteContext = siteContexts[i];
+		for (int i = 0; i < siteConfigs.length; i++) {
+			SiteConfig siteConfig = siteConfigs[i];
 
-			String groupFriendlyURL = siteContext.getGroupFriendlyURL();
+			String groupFriendlyURL = siteConfig.getGroupFriendlyURL();
 
 			Group group = _groupLocalService.fetchFriendlyURLGroup(
 				companyId, groupFriendlyURL);
@@ -44,12 +44,10 @@ public class AddSitesImpl implements AddSites {
 
 				group = _groupLocalService.addGroup(
 					companyGroup.getCreatorUserId(), 0, null, 0, 0,
-					siteContext.getNameMap(), siteContext.getDescriptionMap(),
-					siteContext.getGroupType(),
-					siteContext.getManualMembership(),
-					siteContext.getMembershipRestriction(),
-					groupFriendlyURL, true, true,
-					new ServiceContext());
+					siteConfig.getNameMap(), siteConfig.getDescriptionMap(),
+					siteConfig.getGroupType(), siteConfig.getManualMembership(),
+					siteConfig.getMembershipRestriction(), groupFriendlyURL,
+					true, true, new ServiceContext());
 			}
 			else if (_log.isDebugEnabled()) {
 				_log.debug(
