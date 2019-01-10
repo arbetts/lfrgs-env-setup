@@ -1,7 +1,6 @@
 package com.liferay.gs.env.setup.internal;
 
 import com.liferay.gs.env.setup.AddOrganizations;
-import com.liferay.gs.env.setup.AssignPermissions;
 import com.liferay.gs.env.setup.config.OrganizationConfig;
 
 import com.liferay.portal.kernel.exception.PortalException;
@@ -63,9 +62,6 @@ public class AddOrganizationsImpl implements AddOrganizations {
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		AddOrganizationsImpl.class);
-
-	@Reference
-	private AssignPermissions _assignPermissions;
 
 	@Reference
 	private GroupLocalService _groupLocalService;

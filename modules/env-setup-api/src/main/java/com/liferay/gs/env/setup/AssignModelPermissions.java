@@ -1,7 +1,7 @@
 package com.liferay.gs.env.setup;
 
 
-import com.liferay.gs.env.setup.internal.AssignPermissionsImpl;
+import com.liferay.gs.env.setup.internal.AssignModelPermissionsImpl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.AuditedModel;
 import com.liferay.portal.kernel.service.permission.ModelPermissions;
@@ -9,7 +9,7 @@ import com.liferay.portal.kernel.service.permission.ModelPermissions;
 /**
  * @author Andrew Betts
  */
-public interface AssignPermissions {
+public interface AssignModelPermissions {
 
 	interface AuditedModelGetter<M extends AuditedModel, A1, A2, A3, A4, A5> {
 
@@ -44,8 +44,8 @@ public interface AssignPermissions {
 	// add
 
 	default  <M extends AuditedModel, A1> void addAuditedModelPermissions(
-			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter_1<M, A1> getter, A1 arg1)
+		long groupId, ModelPermissions modelPermissions,
+		AssignModelPermissionsImpl.AuditedModelGetter_1<M, A1> getter, A1 arg1)
 		throws PortalException {
 
 		addAuditedModelPermissions(
@@ -54,7 +54,7 @@ public interface AssignPermissions {
 
 	default  <M extends AuditedModel, A1, A2> void addAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter_2<M, A1, A2> getter,
+			AssignModelPermissionsImpl.AuditedModelGetter_2<M, A1, A2> getter,
 			A1 arg1, A2 arg2)
 		throws PortalException {
 
@@ -64,7 +64,7 @@ public interface AssignPermissions {
 
 	default  <M extends AuditedModel, A1, A2, A3> void addAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter_3<M, A1, A2, A3> getter,
+			AssignModelPermissionsImpl.AuditedModelGetter_3<M, A1, A2, A3> getter,
 			A1 arg1, A2 arg2, A3 arg3)
 		throws PortalException {
 
@@ -74,7 +74,7 @@ public interface AssignPermissions {
 
 	default  <M extends AuditedModel, A1, A2, A3, A4> void addAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter_4<M, A1, A2, A3, A4> getter,
+			AssignModelPermissionsImpl.AuditedModelGetter_4<M, A1, A2, A3, A4> getter,
 			A1 arg1, A2 arg2, A3 arg3, A4 arg4)
 		throws PortalException {
 
@@ -85,7 +85,7 @@ public interface AssignPermissions {
 
 	default  <M extends AuditedModel, A1, A2, A3, A4, A5> void addAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter<M, A1, A2, A3, A4, A5> getter,
+			AssignModelPermissionsImpl.AuditedModelGetter<M, A1, A2, A3, A4, A5> getter,
 			A1 arg1, A2 arg2, A3 arg3, A4 arg4, A5 arg5)
 		throws PortalException {
 
@@ -97,8 +97,8 @@ public interface AssignPermissions {
 	// remove
 
 	default  <M extends AuditedModel, A1> void removeAuditedModelPermissions(
-			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter_1<M, A1> getter, A1 arg1)
+		long groupId, ModelPermissions modelPermissions,
+		AssignModelPermissionsImpl.AuditedModelGetter_1<M, A1> getter, A1 arg1)
 		throws PortalException {
 
 		removeAuditedModelPermissions(
@@ -107,7 +107,7 @@ public interface AssignPermissions {
 
 	default  <M extends AuditedModel, A1, A2> void removeAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter_2<M, A1, A2> getter,
+			AssignModelPermissionsImpl.AuditedModelGetter_2<M, A1, A2> getter,
 			A1 arg1, A2 arg2)
 		throws PortalException {
 
@@ -117,7 +117,7 @@ public interface AssignPermissions {
 
 	default  <M extends AuditedModel, A1, A2, A3> void removeAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter_3<M, A1, A2, A3> getter,
+			AssignModelPermissionsImpl.AuditedModelGetter_3<M, A1, A2, A3> getter,
 			A1 arg1, A2 arg2, A3 arg3)
 		throws PortalException {
 
@@ -127,7 +127,7 @@ public interface AssignPermissions {
 
 	default  <M extends AuditedModel, A1, A2, A3, A4> void removeAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter_4<M, A1, A2, A3, A4> getter,
+			AssignModelPermissionsImpl.AuditedModelGetter_4<M, A1, A2, A3, A4> getter,
 			A1 arg1, A2 arg2, A3 arg3, A4 arg4)
 		throws PortalException {
 
@@ -138,7 +138,7 @@ public interface AssignPermissions {
 
 	default  <M extends AuditedModel, A1, A2, A3, A4, A5> void removeAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions,
-			AssignPermissionsImpl.AuditedModelGetter<M, A1, A2, A3, A4, A5> getter,
+			AssignModelPermissionsImpl.AuditedModelGetter<M, A1, A2, A3, A4, A5> getter,
 			A1 arg1, A2 arg2, A3 arg3, A4 arg4, A5 arg5)
 		throws PortalException {
 

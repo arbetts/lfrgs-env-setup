@@ -1,6 +1,6 @@
 package com.liferay.gs.env.setup.internal;
 
-import com.liferay.gs.env.setup.AssignPermissions;
+import com.liferay.gs.env.setup.AssignModelPermissions;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -16,7 +16,7 @@ import org.osgi.service.component.annotations.Reference;
  * @author Andrew Betts
  */
 @Component
-public class AssignPermissionsImpl implements AssignPermissions {
+public class AssignModelPermissionsImpl implements AssignModelPermissions {
 
 	public <M extends AuditedModel> void addAuditedModelPermissions(
 			long groupId, ModelPermissions modelPermissions, M m)
@@ -107,7 +107,7 @@ public class AssignPermissionsImpl implements AssignPermissions {
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(
-		AssignPermissionsImpl.class);
+		AssignModelPermissionsImpl.class);
 
 	@Reference
 	private ResourceLocalService _resourceLocalService;

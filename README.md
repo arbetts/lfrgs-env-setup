@@ -12,7 +12,6 @@ The test package contains a sample upgrade step registrar and module versioning
 scheme.
 
 
-    TODO::    
-        AddUsers
+    TODO::
         AddWebContent
         JSONDataLoader

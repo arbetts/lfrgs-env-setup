@@ -1,7 +1,7 @@
 package com.liferay.gs.env.setup.internal;
 
 import com.liferay.gs.env.setup.AddLayouts;
-import com.liferay.gs.env.setup.AssignPermissions;
+import com.liferay.gs.env.setup.AssignModelPermissions;
 import com.liferay.gs.env.setup.config.LayoutConfig;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -51,12 +51,12 @@ public class AddLayoutsImpl implements AddLayouts {
 			}
 
 			if (addPermissions != null) {
-				_assignPermissions.addAuditedModelPermissions(
+				_assignModelPermissions.addAuditedModelPermissions(
 					layout.getGroupId(), addPermissions, layout);
 			}
 
 			if (removePermissions != null) {
-				_assignPermissions.removeAuditedModelPermissions(
+				_assignModelPermissions.removeAuditedModelPermissions(
 					layout.getGroupId(), removePermissions, layout);
 			}
 
@@ -82,6 +82,6 @@ public class AddLayoutsImpl implements AddLayouts {
 	private LayoutLocalService _layoutLocalService;
 
 	@Reference
-	private AssignPermissions _assignPermissions;
+	private AssignModelPermissions _assignModelPermissions;
 
 }
