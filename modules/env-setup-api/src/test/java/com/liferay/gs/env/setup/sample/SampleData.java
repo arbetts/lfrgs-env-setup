@@ -1,9 +1,7 @@
 package com.liferay.gs.env.setup.sample;
 
-import com.liferay.gs.env.setup.config.LayoutConfig;
-import com.liferay.gs.env.setup.config.RoleConfig;
-import com.liferay.gs.env.setup.config.SiteConfig;
-import com.liferay.gs.env.setup.config.UserGroupConfig;
+import com.liferay.gs.env.setup.AddUsers;
+import com.liferay.gs.env.setup.config.*;
 import com.liferay.portal.kernel.model.LayoutConstants;
 
 public class SampleData {
@@ -53,14 +51,21 @@ public class SampleData {
 			new RoleConfig("Batman"),
 			new RoleConfig("Wonder Woman"),
 			new RoleConfig("Green Lantern"),
-			new RoleConfig("The Flash"),
-			new RoleConfig("Aquaman"),
-			new RoleConfig("Cyborg")
+			new RoleConfig("The Flash")
 		};
 
 	public static final UserGroupConfig[] SAMPLE_USER_GROUP_CONFIGURATION =
 		new UserGroupConfig[] {
 			new UserGroupConfig(SAMPLE_USER_GROUP)
+		};
+
+	public static final UserConfig[] SAMPLE_USER_CONFIGURATION =
+		new UserConfig[] {
+			new UserConfig("clarkKent", AddUsers.Find.BY_SCREEN_NAME),
+			new UserConfig("bruceWayne", AddUsers.Find.BY_SCREEN_NAME),
+			new UserConfig("diana", AddUsers.Find.BY_SCREEN_NAME),
+			new UserConfig("alanScott", AddUsers.Find.BY_SCREEN_NAME),
+			new UserConfig("barryAllen", AddUsers.Find.BY_SCREEN_NAME)
 		};
 
 }

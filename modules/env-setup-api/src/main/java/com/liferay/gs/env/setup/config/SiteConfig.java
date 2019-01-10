@@ -94,8 +94,9 @@ public class SiteConfig {
 		return this;
 	}
 
+	private final String groupFriendlyURL;
+
 	private Map<Locale, String> descriptionMap;
-	private String groupFriendlyURL;
 	private int groupType;
 	private boolean manualMembership;
 	private int membershipRestriction;

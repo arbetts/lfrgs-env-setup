@@ -39,9 +39,13 @@ public class AddUserGroupsImpl implements AddUserGroups {
 					new ServiceContext());
 			}
 
-			if (_log.isInfoEnabled()) {
-				_log.info("added userGroup" + userGroup.getName());
+			if (_log.isDebugEnabled()) {
+				_log.debug("added userGroup" + userGroup.getName());
 			}
+		}
+
+		if (_log.isInfoEnabled()) {
+			_log.info("userGroups loaded");
 		}
 	}
 

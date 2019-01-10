@@ -33,13 +33,16 @@ public class SampleEnvSetupStepRegistrar implements UpgradeStepRegistrator {
 			new CompanyAwareUpgradeProcess(_addSampleRoles, _portal));
 		registry.register(
 			_bundleSymbolicName, "2", "3",
-			new CompanyAwareUpgradeProcess(_addSampleUserGroups, _portal));
+			new CompanyAwareUpgradeProcess(_addSampleUsers, _portal));
 		registry.register(
 			_bundleSymbolicName, "3", "4",
+			new CompanyAwareUpgradeProcess(_addSampleUserGroups, _portal));
+		registry.register(
+			_bundleSymbolicName, "4", "5",
 			new CompanyAwareUpgradeProcess(
 				_configureSampleUserGroups, _portal));
 		registry.register(
-			_bundleSymbolicName, "4", "5",
+			_bundleSymbolicName, "5", "6",
 			new CompanyAwareUpgradeProcess(_addSampleLayouts, _portal));
 	}
 	
@@ -53,6 +56,9 @@ public class SampleEnvSetupStepRegistrar implements UpgradeStepRegistrator {
 
 	@Reference(target = "(component.name=*AddSampleRoles)")
 	private EnvSetupStep _addSampleRoles;
+
+	@Reference(target = "(component.name=*AddSampleUsers)")
+	private EnvSetupStep _addSampleUsers;
 
 	@Reference(target = "(component.name=*AddSampleUserGroups)")
 	private EnvSetupStep _addSampleUserGroups;

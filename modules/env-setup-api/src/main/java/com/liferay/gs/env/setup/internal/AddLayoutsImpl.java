@@ -62,8 +62,8 @@ public class AddLayoutsImpl implements AddLayouts {
 					layout.getGroupId(), removePermissions, layout);
 			}
 
-			if (_log.isInfoEnabled()) {
-				_log.info("added page " + friendlyURL);
+			if (_log.isDebugEnabled()) {
+				_log.debug("added page " + friendlyURL);
 			}
 
 			if (childConfigs != null) {
@@ -71,6 +71,10 @@ public class AddLayoutsImpl implements AddLayouts {
 					layout, group, childConfigs, addPermissions,
 					removePermissions);
 			}
+		}
+
+		if (_log.isInfoEnabled()) {
+			_log.info("pages loaded");
 		}
 	}
 

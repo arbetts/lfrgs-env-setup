@@ -63,8 +63,9 @@ public class RoleConfig {
 		return this;
 	}
 
+	private final String roleName;
+
 	private Map<Locale, String> descriptionMap;
-	private String roleName;
 	private int roleType;
 	private String subType;
 	private Map<Locale, String> titleMap;

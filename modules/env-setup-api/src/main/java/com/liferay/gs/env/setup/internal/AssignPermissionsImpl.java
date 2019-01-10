@@ -34,7 +34,7 @@ public class AssignPermissionsImpl implements AssignPermissions {
 
 		_resourceLocalService.updateModelResources(m, serviceContext);
 
-		if (_log.isInfoEnabled()) {
+		if (_log.isDebugEnabled()) {
 			StringBundler sb = new StringBundler(5);
 
 			sb.append("added permissions {model:");
@@ -43,7 +43,7 @@ public class AssignPermissionsImpl implements AssignPermissions {
 			sb.append(m.getPrimaryKeyObj());
 			sb.append("}");
 
-			_log.info(sb);
+			_log.debug(sb);
 		}
 	}
 
@@ -57,8 +57,8 @@ public class AssignPermissionsImpl implements AssignPermissions {
 			Role role = _roleLocalService.fetchRole(companyId, roleName);
 
 			if (role == null) {
-				if (_log.isDebugEnabled()) {
-					_log.debug("no role round {name:" + roleName + "}");
+				if (_log.isTraceEnabled()) {
+					_log.trace("no role round {name:" + roleName + "}");
 				}
 
 				continue;
@@ -71,7 +71,7 @@ public class AssignPermissionsImpl implements AssignPermissions {
 					String.valueOf(m.getPrimaryKeyObj()), role.getRoleId());
 
 			if (resourcePermission == null) {
-				if (_log.isDebugEnabled()) {
+				if (_log.isTraceEnabled()) {
 					StringBundler sb = new StringBundler(5);
 
 					sb.append("no resourcePremission found {name:");
@@ -80,7 +80,7 @@ public class AssignPermissionsImpl implements AssignPermissions {
 					sb.append(m.getPrimaryKeyObj());
 					sb.append("}");
 
-					_log.debug(sb);
+					_log.trace(sb);
 				}
 
 				continue;
@@ -94,7 +94,7 @@ public class AssignPermissionsImpl implements AssignPermissions {
 				resourcePermission);
 		}
 
-		if (_log.isInfoEnabled()) {
+		if (_log.isDebugEnabled()) {
 			StringBundler sb = new StringBundler(5);
 
 			sb.append("removed permissions {model:");
@@ -103,7 +103,7 @@ public class AssignPermissionsImpl implements AssignPermissions {
 			sb.append(m.getPrimaryKeyObj());
 			sb.append("}");
 
-			_log.info(sb);
+			_log.debug(sb);
 		}
 	}
 

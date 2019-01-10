@@ -38,6 +38,10 @@ public class AssignUserGroupGroupRolesImpl
 
 			addUserGroupGroupRole(companyId, group, userGroup, role);
 		}
+
+		if (_log.isInfoEnabled()) {
+			_log.info("assigned userGroups group and role");
+		}
 	}
 
 	@Override
@@ -53,6 +57,10 @@ public class AssignUserGroupGroupRolesImpl
 
 			addUserGroupGroupRole(companyId, group, userGroup, role);
 		}
+
+		if (_log.isInfoEnabled()) {
+			_log.info("assigned userGroup group and roles");
+		}
 	}
 
 	@Override
@@ -63,7 +71,7 @@ public class AssignUserGroupGroupRolesImpl
 			userGroup.getUserGroupId(), group.getGroupId(),
 			new long[] {role.getRoleId()});
 
-		if (_log.isInfoEnabled()) {
+		if (_log.isDebugEnabled()) {
 			StringBundler sb = new StringBundler(7);
 
 			sb.append("added UserGroupGroupRole {userGroupId:");
@@ -74,7 +82,7 @@ public class AssignUserGroupGroupRolesImpl
 			sb.append(role.getRoleId());
 			sb.append("}");
 
-			_log.info(sb.toString());
+			_log.debug(sb.toString());
 		}
 	}
 

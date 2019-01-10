@@ -43,9 +43,13 @@ public class AddRolesImpl implements AddRoles {
 					roleConfig.getSubType(), new ServiceContext());
 			}
 
-			if (_log.isInfoEnabled()) {
-				_log.info("added site role " + role.getName());
+			if (_log.isDebugEnabled()) {
+				_log.debug("added role" + role.getName());
 			}
+		}
+
+		if (_log.isInfoEnabled()) {
+			_log.info("roles loaded");
 		}
 	}
 

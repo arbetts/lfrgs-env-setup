@@ -61,7 +61,7 @@ public class AddSitesImpl implements AddSites {
 		}
 
 		if (_log.isInfoEnabled()) {
-			_log.info(groups.length + " groups added");
+			_log.info("sites loaded");
 		}
 
 		return groups;

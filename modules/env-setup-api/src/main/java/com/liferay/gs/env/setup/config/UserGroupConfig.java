@@ -24,7 +24,7 @@ public class UserGroupConfig {
 		return this;
 	}
 
-	private String userGroupName;
+	private final String userGroupName;
 	private String description;
 
 }

@@ -96,9 +96,10 @@ public class LayoutConfig {
 		return this;
 	}
 
+	private final String friendlyURL;
+
 	private String description;
 	private boolean hidden;
-	private String friendlyURL;
 	private String layoutType;
 	private String name;
 	private boolean privateLayout;
