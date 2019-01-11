@@ -19,16 +19,9 @@ public class ConfigureSampleUserGroups implements EnvSetupStep {
 		Group group = groupLocalService.getGroup(
 			companyId, SampleData.SAMPLE_SITE_NAME);
 
-		String[] roleNames = new String[
-			SampleData.SAMPLE_ROLE_CONFIGURATION.length];
-
-		for (int i = 0; i < SampleData.SAMPLE_ROLE_CONFIGURATION.length; i++) {
-			roleNames[i] =
-				SampleData.SAMPLE_ROLE_CONFIGURATION[i].getRoleName();
-		}
-
 		assignUserGroupGroupRoles.assignUserGroupGroupRoles(
-			companyId, group, SampleData.SAMPLE_USER_GROUP, roleNames);
+			companyId, group, SampleData.SAMPLE_USER_GROUP_CONFIGURATION[0],
+			SampleData.SAMPLE_ROLE_CONFIGURATION);
 	}
 
 	@Reference
