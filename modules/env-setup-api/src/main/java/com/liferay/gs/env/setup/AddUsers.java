@@ -18,8 +18,7 @@ public interface AddUsers {
 		BY_OPEN_ID,
 		BY_SCREEN_NAME,
 		BY_USER_ID
-
-		}
+	}
 
 	static User fetchUser(
 		long companyId, UserConfig userConfig,

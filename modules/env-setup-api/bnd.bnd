@@ -4,4 +4,5 @@ Bundle-Version: 1.0.0
 Export-Package: \
     com.liferay.gs.env.setup,\
     com.liferay.gs.env.setup.config,\
+    com.liferay.gs.env.setup.json,\
     com.liferay.gs.env.setup.upgrade
