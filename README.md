@@ -11,7 +11,7 @@ various revisions.
 The test package contains a sample upgrade step registrar and module versioning 
 scheme.
 
+mvn repository under http://raw.github.com/arbetts/lfrgs-env-setup/repository
 
     TODO::
         AddWebContent
-        JSONDataLoader
