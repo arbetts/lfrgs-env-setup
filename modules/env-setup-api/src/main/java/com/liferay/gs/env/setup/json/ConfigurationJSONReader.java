@@ -3,6 +3,7 @@ package com.liferay.gs.env.setup.json;
 import com.liferay.gs.env.setup.AddUsers;
 import com.liferay.gs.env.setup.config.LayoutConfig;
 import com.liferay.gs.env.setup.config.OrganizationConfig;
+import com.liferay.gs.env.setup.config.PortletConfig;
 import com.liferay.gs.env.setup.config.RoleConfig;
 import com.liferay.gs.env.setup.config.SiteConfig;
 import com.liferay.gs.env.setup.config.UserConfig;
@@ -78,6 +79,36 @@ public class ConfigurationJSONReader {
 		}
 
 		return layoutConfig;
+	}
+
+	public PortletConfig readPortletConfig(JSONObject jsonObject) {
+		PortletConfig portletConfig = new PortletConfig(
+			jsonObject.getString("portletId"));
+
+		Iterator<String> keys = jsonObject.keys();
+
+		while (keys.hasNext()) {
+			String key = keys.next();
+
+			switch (key) {
+				case "ownerId":
+					portletConfig.setOwnerId(jsonObject.getLong(key));
+
+					break;
+
+				case "ownerType":
+					portletConfig.setOwnerType(jsonObject.getInt(key));
+
+					break;
+
+				case "xml":
+					portletConfig.setXml(jsonObject.getString(key));
+
+					break;
+			}
+		}
+
+		return portletConfig;
 	}
 
 	public OrganizationConfig readOrganizationConfig(JSONObject jsonObject) {
