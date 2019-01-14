@@ -1,6 +1,6 @@
 Bundle-Name: com.liferay.gs.env.setup
 Bundle-SymbolicName: com.liferay.gs.env.setup
-Bundle-Version: 1.0.0
+Bundle-Version: 1.1.0
 Export-Package: \
     com.liferay.gs.env.setup,\
     com.liferay.gs.env.setup.config,\
