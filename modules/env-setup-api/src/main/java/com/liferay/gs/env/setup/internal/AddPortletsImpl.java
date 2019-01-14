@@ -18,7 +18,6 @@ import com.liferay.portal.kernel.service.PortletPreferencesLocalService;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-
 /**
  * @author Andrew Betts
  */
