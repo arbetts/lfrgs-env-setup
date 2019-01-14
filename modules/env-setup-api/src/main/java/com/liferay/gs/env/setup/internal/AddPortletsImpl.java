@@ -57,7 +57,7 @@ public class AddPortletsImpl implements AddPortlets {
 
 				String xml = portletConfig.getXml();
 
-				if ((xml != null) && !xml.isEmpty()) {
+				if ((portletId != null) && (xml != null) && !xml.isEmpty()) {
 					portletPreferencesLocalService.updatePreferences(
 						portletConfig.getOwnerId(),
 						portletConfig.getOwnerType(), layout.getPlid(),
